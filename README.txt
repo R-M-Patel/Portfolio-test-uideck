@@ -1,153 +1,382 @@
-90s Retro v1.4.9.1
-http://organicthemes.com
-
-A WordPress theme designed in the style of an old Geocities site, because we thought it would be funny.
-
-Image Credits
-
-- logo.gif: Created by David Morgan, http://dav.idmorgan.com. Licensed under the GPLv2 license.
-- retro-torch.gif: Created by David Morgan, http://dav.idmorgan.com. Licensed under the GPLv2 license.
-- screenshot.png: Created by David Morgan, http://dav.idmorgan.com. Licensed under the GPLv2 license.
-	- Image in screenshot: Photo by Julian Fernandes. Downloaded from Unsplash, https://unsplash.com/license. Licensed under Creative Commons Zero.
-- background.png: Downloaded from Subtle Patters, http://subtlepatterns.com/small-steps/. Licensed under CC BY-SA 3.0.
-
-Audio Credits
-
-- come_and_find_me.mp3: Created by Eric Skiff, http://ericskiff.com/music/. Licensed under the Creative Commons license.
-
-Font Awesome
-
-- Font License: SIL OFL 1.1 http://scripts.sil.org/OFL
-- Code License: MIT License http://opensource.org/licenses/mit-license.html
-
-Script Credits
-
-- navigation.js: Licensed under the GPLv2 license.
-- hoverIntent.js: Created by Brian Cherne. Licensed under the MIT license.
-- fitvids.js: Created by Chris Coyier. Released under the WTFPL license.
-- html5shiv.js: MIT/GPL2 Licensed.
-- superfish.js: Created by Joel Birch. Dual licensed under the MIT and GPL licenses.
+Ethereal by HTML5 UP
+html5up.net | @ajlkn
+Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 
 
-INSTALL:
-1. Upload the theme by navigating to Appearance > Themes > Install Themes within the WordPress admin. Select the theme zip file to upload.
-2. Activate the theme after uploading.
-3. Configure and save the theme options within Appearance > Customize.
+This is Ethereal, my latest, greatest, and quite possibly most unique template for HTML5 UP.
+Since releasing Parallelism 3-4 years ago (!!!), I've been dying to do another side-scrolling
+template with more in the way of flexibility/customization potential. The result is this template,
+Ethereal, which combines a robust side-scrolling framework of my own creation (with various
+"scroll-assist" features like drag/momentum scrolling, keyboard shortcuts, etc.) with a unique
+look and feel, a lightbox gallery, tons of customization options, and, of course, full
+responsiveness. Hope you dig it :)
 
-CHANGELOG v1.0.1:
-- Updated Font Awesome
-- Custom menu updates
-- Updated content width function
-- Updated screenshot
-- Removed unnecessary functions
-- Removed old IE conditionals
-- Changed theme name
-- Style tweaks
+Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
+you can use for pretty much whatever.
 
-CHANGELOG v1.1:
-- Changed Theme Name
-- Updated FontAwesome
-- Added escaping to i18n translations
-- Updated language files
-- Changed audio file
+(* = not included)
 
-CHANGELOG v1.2:
-- Removed animated gifs
-- Removed fake counter
-- Removed logo.psd
-- Updated theme URI
-- Fixed text domain issues
-- Regenerated translation files
-- Added more image credits
-- Added screen reader text class
-- Other misc fixes for WP.org
+AJ
+aj@lkn.io | @ajlkn
 
-CHANGELOG v1.2.1:
-- Added licensing to README.txt
-- Minor tweaks
 
-CHANGELOG v1.2.2:
-- Updated screen shot
-- Added licensing to README.txt
+Instructions:
 
-CHANGELOG v1.3:
-- Stopped music from auto playing by default
-- Added animated GIFs to site title
-- Added typefaces file for Google Fonts
-- Updated mobile navigation script
-- Mobile menu fixes
-- Regenerated language files
+	Overview
+	========
 
-CHANGELOG v1.3.1:
-- Updated description
-- Updated screenshot
+		Browsers deal with side-scrolling pages differently to vertically-oriented ones in
+		that they require elements (or at the very least, the top-most wrapper element) to
+		have a defined (fixed) width. This leads to a number of limitations (eg. the page
+		won't automatically grow/shrink in the same way a vertically-oriented one will), so
+		Ethereal does two things to work around this:
 
-CHANGELOG v1.3.2:
-- Fixed site title display on mobile
-- Style tweaks
+		- The entire page is made up of "panel" elements, each of which can be assigned an
+		  optional "size" modifier (satisfying the fixed width requirement).
 
-CHANGELOG v1.3.3:
-- Updated screenshot
-- Updated mobile menu
-- Updated site description to allow HTML
-- Added edit post link to post
-- Added new social icons to stylesheet
+		- For panels that don't use a size modifier, individual containing elements *inside*
+		  them (eg. a column) can be assigned a "span" modifier to give those a fixed width
+		  instead (also satisfying the fixed width requirement).
 
-CHANGELOG v1.3.4:
-- Updated superfish script
-- Updated mobile navigation
-- Updated pagination
-- Added admin notice
-- Style tweaks
+		Another fun quirk of side-scrolling pages is how to actually implement horizontal
+		scrolling *without* resorting to using the (usually ugly) horizontal scrollbar.
+		Ethereal does this in FOUR (!) ways:
 
-CHANGELOG v1.3.5:
-- Fixed typo
+		- Dragging: Users can simply click and drag the page left or right to scroll it around.
+		  This works exactly as you'd expect, and even has a nice "post-scroll momentum" effect.
 
-CHANGELOG v1.4:
-- Cleaned up PHP
-- Updated screenshot.png
-- Theme Check fixes
-- Footer change plugin notice
+		- Scroll Wheel: Ethereal modifies* the scroll wheel's behavior to translate vertical
+		  scrolling into horizontal scrolling, allowing the user to use either the scroll wheel
+		  or trackpad to scroll the page (the latter of which retains the ability to horziontally
+		  scroll as normal, so nothing changes there).
 
-CHANGELOG v1.4.1:
-- Admin notice update
+		  * Special thanks to @miorel + @pieterv of Facebook for "normalizeWheel()" :)
 
-CHANGELOG v1.4.2:
-- Fixed escaping issue with comments displaying HTML tags
+		- Scroll Zones: Users can hover the mouse cursor on the left or right edges of the page
+		  to automatically scroll in either direction.
 
-CHANGELOG v1.4.3:
-- Removed admin notice
+		- Keyboard Shortcuts: Finally, users can simply use the left/right arrows, page up/down,
+		  home/end, and the spacebar to scroll the page.
 
-CHANGELOG v1.4.4:
-- Removed archives page template
-- Removed HTML5 shiv scripts
-- Added dismissible admin notice
-- General cleanup
+		Note that any (or all) of these scroll-assist features can be turned off (and in some
+		cases customized). See the top of assets/js/main.js for more information.
 
-CHANGELOG v1.4.5:
-- Minor type update
-- Enable selective refresh for widgets
-- Added 'use strict' to jquery.custom.js
-- Added plugin activation recommendations
 
-CHANGELOG v1.4.5.1:
-- Fixed textdomain
+	Span Modifiers
+	==============
 
-CHANGELOG v1.4.6:
-- Updated plugin activation scripts
-- Require Organic Customizer Widgets plugin
-- Recommend Customize Posts plugin
+		Span modifiers are simply classes that give elements a fixed width, the size of which
+		is determined by the "unit value" associated with the modifier (eg. "span-3" means
+		"span 3 units"). These sizes are in "rem" units when used inside panels that don't
+		use a size modifier, and in percentage units when used inside panels that do.
 
-CHANGELOG v1.4.7:
-- Updates to admin notice
+		Ethereal includes span modifiers ranging from 0.25 units ("span-0-25") to 10 units
+		("span-10"). Here's a partial list:
 
-CHANGELOG v1.4.8:
-- Removed force activation
-- Removed recommended Customize Posts plugin
+		span-0-25     Span 0.25 units.
+		span-0-5      Span 0.5 units.
+		span-0-75     Span 0.75 units.
+		span-1        Span 1 unit.
+		span-1-25     Span 1.25 units.
+		span-1-5      Span 1.5 units.
+		span-1-75     Span 1.75 units.
+		...
+		span-9        Span 9 units.
+		span-9-25     Span 9.25 units.
+		span-9-5      Span 9.5 units.
+		span-9-75     Span 9.75 units.
+		span-10       Span 10 units.
 
-CHANGELOG v1.4.9:
-- Updated OCW plugin name to Organic Builder Widgets
-- Added theme support submenu link
 
-CHANGELOG v1.4.9.1
-- Fixed issue of custom admin submenu link overwriting other links
+	Major Elements
+	==============
+
+		Most of Ethereal's elements are pretty much what you'd expect, but there are a handful
+		of "major" ones that warrant a bit more explanation:
+
+
+		Panel
+		------
+
+			The primary building block of Ethereal.
+
+			HTML
+
+				<section class="panel (size modifier) (color modifier)">
+					<div class="intro (color modifier)">
+						(intro content)
+					</div>
+					<div class="inner (inner modifiers) (color modifier)">
+						(inner content)
+					</div>
+				</section>
+
+				Note: The entire "intro" child element can be excluded.
+				Note: You can have as many "intro" and "inner" child elements as you like.
+
+			Modifiers
+
+				Size
+
+					small          Use small size.
+					medium         Use medium size.
+					large          Use large size.
+
+				Color
+
+					color0         Use background color 0 (gradient).
+					color1         Use background color 1.
+					color2         Use background color 2.
+					color3         Use background color 3.
+					color4         Use background color 4.
+					color1-alt     Use background color 1 (alt).
+					color2-alt     Use background color 2 (alt).
+					color3-alt     Use background color 3 (alt).
+					color4-alt     Use background color 4 (alt).
+
+				Inner
+
+					columns        Divides child elements into columns.
+					aligned        When used with "columns", aligns content to top of panel.
+					divided        When used with "columns", separates each column with a vertical line.
+
+			Examples
+
+				Here's a very basic example:
+
+					<section class="panel medium color0">
+						<div class="intro">
+							<h2 class="major">Panel</h2>
+							<p>Just a generic panel.</p>
+						</div>
+						<div class="inner">
+							<p>Lorem ipsum dolor sit amet.</p>
+						</div>
+					</section>
+
+				And here's a more advanced example using columns and *no* size modifier:
+
+					<section class="panel color2">
+						<div class="intro">
+							<h2 class="major">Panel</h2>
+							<p>Just a generic panel.</p>
+						</div>
+						<div class="inner columns">
+							<div class="span-4">
+								<p>This column is 4 units wide.</p>
+							</div>
+							<div class="span-3">
+								<p>This column is 3 units wide.</p>
+							</div>
+							<div class="span-2">
+								<p>This column is 2 units wide.</p>
+							</div>
+						</div>
+					</section>
+
+				Note: The "intro" child element already has a fixed width, so a span modifier
+				isn't required.
+
+
+		Panel (Banner)
+		--------------
+
+			The "Banner" variant of a regular panel.
+
+			HTML
+
+				<section class="panel banner (size modifier) (color modifier) (orientation modifier)">
+					<div class="content (color modifier)">
+						(content)
+					</div>
+					<div class="image (image modifiers)" data-position="(image position modifier)">
+						<img src="(image URL)" alt="" />
+					</div>
+				</section>
+
+			Modifiers
+
+				Orientation
+
+					left           Content on the left, image on the right.
+					right          Content on the right, image on the left.
+
+				Image
+
+					filtered       Applies a gradient filter to the image.
+					tinted         Applies a tint filter to the image.
+
+				Image Position (required)
+
+					top left       Position image in the top-left corner.
+					top            Position image along the top edge.
+					top right      Position image in the top-right corner.
+					right          Position image along the right edge.
+					bottom right   Position image in the bottom-right corner.
+					bottom         Position image along the bottom edge.
+					bottom left    Position image in the bottom-left corner.
+					left           Position image along the left edge.
+					center         Position image in the center.
+
+			Example
+
+				<section class="panel banner medium right">
+					<div class="content color0">
+						<h1>Banner</h1>
+						<p>Lorem ipsum dolor sit amet.</p>
+					</div>
+					<div class="image" data-position="center">
+						<img src="/path/to/image.jpg" alt="" />
+					</div>
+				</section>
+
+
+		Panel (Spotlight)
+		-----------------
+
+			The "Spotlight" variant of a regular panel.
+
+			HTML
+
+				<section class="panel spotlight (size modifier) (orientation modifier)">
+					<div class="content (span modifier)">
+						(content)
+					</div>
+					<div class="image (image modifiers)" data-position="(image position modifier)">
+						<img src="(image URL)" alt="" />
+					</div>
+				</section>
+
+			Modifiers
+
+				Orientation
+
+					left           Content on the left.
+					right          Content on the right.
+
+				Image
+
+					filtered       Applies a gradient filter to the image.
+					tinted         Applies a tint filter to the image.
+
+				Image Position (required)
+
+					top left       Position image in the top-left corner.
+					top            Position image along the top edge.
+					top right      Position image in the top-right corner.
+					right          Position image along the right edge.
+					bottom right   Position image in the bottom-right corner.
+					bottom         Position image along the bottom edge.
+					bottom left    Position image in the bottom-left corner.
+					left           Position image along the left edge.
+					center         Position image in the center.
+
+			Example
+
+				<section class="panel spotlight large right">
+					<div class="content">
+						<h1>Spotlight</h1>
+						<p>Lorem ipsum dolor sit amet.</p>
+					</div>
+					<div class="image" data-position="center">
+						<img src="/path/to/image.jpg" alt="" />
+					</div>
+				</section>
+
+
+		Gallery
+		-------
+
+			A lightbox-enabled gallery.
+
+			HTML
+
+				<div class="gallery">
+					<a href="(full image URL)" class="image (image modifiers) (span modifier)" data-position="(image position modifier)">
+						<img src="(thumbnail image URL)" alt="" />
+					</a>
+					<a href="(full image URL)" class="image (image modifiers) (span modifier)" data-position="(image position modifier)">
+						<img src="(thumbnail image URL)" alt="" />
+					</a>
+					<a href="(full image URL)" class="image (image modifiers) (span modifier)" data-position="(image position modifier)">
+						<img src="(thumbnail image URL)" alt="" />
+					</a>
+					<div class="group (span modifier)">
+						<a href="(full image URL)" class="image (image modifiers) (span modifier)" data-position="(image position modifier)">
+							<img src="(thumbnail image URL)" alt="" />
+						</a>
+						<a href="(full image URL)" class="image (image modifiers) (span modifier)" data-position="(image position modifier)">
+							<img src="(thumbnail image URL)" alt="" />
+						</a>
+						<a href="(full image URL)" class="image (image modifiers) (span modifier)" data-position="(image position modifier)">
+							<img src="(thumbnail image URL)" alt="" />
+						</a>
+						<a href="(full image URL)" class="image (image modifiers) (span modifier)" data-position="(image position modifier)">
+							<img src="(thumbnail image URL)" alt="" />
+						</a>
+						...
+					</div>
+					...
+				</div>
+
+				Note: The "group" element creates a dual-row group of images. Images inside this group will
+				automatically wrap to the next row when they exceed its width (as defined by its span modifier).
+				You can have as many groups in a gallery as you like.
+
+			Modifiers
+
+				Image
+
+					filtered       Applies a gradient filter to the image.
+					tinted         Applies a tint filter to the image.
+
+				Image Position (required)
+
+					top left       Position image in the top-left corner.
+					top            Position image along the top edge.
+					top right      Position image in the top-right corner.
+					right          Position image along the right edge.
+					bottom right   Position image in the bottom-right corner.
+					bottom         Position image along the bottom edge.
+					bottom left    Position image in the bottom-left corner.
+					left           Position image along the left edge.
+					center         Position image in the center.
+
+			Example
+
+				<div class="gallery">
+					<a href="/images/thumbnails/01.jpg" class="image filtered span-2" data-position="center">
+						<img src="/images/fulls/01.jpg" alt="" />
+					</a>
+					<a href="/images/thumbnails/02.jpg" class="image filtered span-4" data-position="center">
+						<img src="/images/fulls/02.jpg" alt="" />
+					</a>
+					<div class="group span-4">
+						<a href="/images/thumbnails/03.jpg" class="image filtered span-2" data-position="center">
+							<img src="/images/fulls/03.jpg" alt="" />
+						</a>
+						<a href="/images/thumbnails/04.jpg" class="image filtered span-2" data-position="center">
+							<img src="/images/fulls/04.jpg" alt="" />
+						</a>
+						<a href="/images/thumbnails/05.jpg" class="image filtered span-2" data-position="center">
+							<img src="/images/fulls/05.jpg" alt="" />
+						</a>
+						<a href="/images/thumbnails/06.jpg" class="image filtered span-2" data-position="center">
+							<img src="/images/fulls/06.jpg" alt="" />
+						</a>
+					</div>
+				</div>
+
+
+Credits:
+
+	Demo Images:
+		Unsplash (unsplash.com)
+
+	Icons:
+		Font Awesome (fontawesome.io)
+
+	Other:
+		jQuery (jquery.com)
+		normalizeWheel (@miorel + @pieterv of Facebook)
+		Responsive Tools (github.com/ajlkn/responsive-tools)
